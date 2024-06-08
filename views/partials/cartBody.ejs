@@ -1,0 +1,56 @@
+<div id="cart-container">
+  <h1>Cart</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Product Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Subtotal</th>
+        <th>Increase</th>
+        <th>Decrease</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% let totalPrice = 0; %> <% cart.forEach(cartItem => { %> <%
+      const product = products.find(p => p.id === cartItem.productId); %>
+      <tr>
+        <td><%= product.name %></td>
+        <td><%= product.description %></td>
+        <td><%= product.price %></td>
+        <td><%= cartItem.quantity %></td>
+        <td><%= cartItem.totalPrice %></td>
+        <% totalPrice += cartItem.totalPrice; %>
+        <td>
+          <form action="/products/increse-cart" method="POST">
+            <input type="hidden" name="productId" value="<%= product.id %>" />
+            <input type="hidden" name="price" value="<%= product.price %>" />
+            <button type="submit">+</button>
+          </form>
+        </td>
+        <td>
+          <form action="/cart/remove" method="POST">
+            <input type="hidden" name="productId" value="<%= product.id %>" />
+            <button type="submit">-</button>
+          </form>
+        </td>
+      </tr>
+      <% }) %> <% if (cart.length > 0) { %>
+      <tr id="totalP">
+        <td>Total Price:</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><%= totalPrice %></td>
+        <td></td>
+        <td>
+          <form action="/cart/checkout" method="POST">
+            <button type="submit">Checkout</button>
+          </form>
+        </td>
+      </tr>
+      <% } %>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,40 @@
+<%- include('partials/head') %>
+
+  <body class="container">
+    <%- include('partials/header') %>
+
+      <div id="category-section">
+        <h2>Xclock <span>Top </span>Watch</h2>
+        <div class="row card-products">
+
+          <% products.forEach(product=> { %>
+            <div>
+              <a href="/products/<%= product.id %>">
+                <img src="/uploads/<%= product.photo %>" alt="<%= product.name %>">
+                <div>
+                  <h3>
+                    <%= product.name %>
+                  </h3>
+                  <p>Price: <%= product.price %>
+                  </p>
+                  <p>Stock: <%= product.stock %>
+                  </p>
+                  <form action="/products/add-to-cart" method="POST">
+                    <input type="hidden" name="productId" value="<%= product.id %>" />
+                    <input type="hidden" name="price" value="<%= product.price %>" />
+                    <button type="submit">Add to Cart</button>
+                  </form>
+                </div>
+              </a>
+            </div>
+            <% if (product.stock> 0) { %>
+
+              <% } %>
+
+                <% }) %>
+        </div>
+      </div>
+      <%- include('partials/footer') %>
+  </body>
+
+  </html>

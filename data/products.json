@@ -1,0 +1,26 @@
+[
+  {
+    "id": "1714410583536",
+    "name": "Mredul",
+    "description": "Watch",
+    "price": "550",
+    "stock": 51,
+    "photo": "1714410583528.jpg"
+  },
+  {
+    "id": "1714410667665",
+    "name": "Katlok",
+    "description": "Lite-Watch",
+    "price": "620",
+    "stock": 62,
+    "photo": "1714410667659.jpg"
+  },
+  {
+    "id": "1714410746474",
+    "name": "xclock",
+    "description": "Brand new",
+    "price": "450",
+    "stock": 42,
+    "photo": "1714410746464.jpg"
+  }
+]

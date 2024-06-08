@@ -1,0 +1,126 @@
+<style>
+    .message-button {
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        z-index: 999;
+    }
+
+    .chat-box-container {
+        position: fixed;
+        right: -400px;
+
+        bottom: 50px;
+        z-index: 998;
+        width: 300px;
+        height: auto;
+        max-height: 400px;
+
+        background-color: #f0f0f0;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        transition: right 0.3s ease;
+        overflow: hidden;
+    }
+
+    .chat-box {
+        padding: 5px;
+        box-sizing: border-box;
+        overflow-y: auto;
+        height: calc(100% - 40px);
+    }
+
+    .close-button {
+        float: right;
+        cursor: pointer;
+        font-size: 20px;
+        color: #888;
+        border: none;
+        background: none;
+        padding: 0;
+    }
+
+    .close-button:hover {
+        color: #333;
+    }
+
+    .chat-messages {
+        margin-bottom: 20px;
+        height: 300px;
+        text-align: justify;
+
+    }
+
+    #chat-form {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: fixed;
+        bottom: 55px;
+    }
+
+    #chat-input {
+        flex: 1;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-right: 10px;
+    }
+
+    #chat-input:focus {
+        outline: none;
+        border-color: #66afe9;
+    }
+
+    #send-button {
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    #send-button:hover {
+        background-color: #45a049;
+    }
+</style>
+
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/scripts/chat.js" defer></script>
+<div class="message-button" id="message-button">
+    <button class="msgButton" onclick="toggleChatBox()">Message</button>
+</div>
+
+<div class="chat-box-container" id="chat-box-container">
+    <div class="chat-box">
+        <button onclick="closeChatBox()" class="close-button">&times;</button>
+        <div class="chat-messages" id="chat-messages">
+
+        </div>
+        <div id="chat-container">
+            <form id="chat-form">
+                <input type="text" id="chat-input" placeholder="Type your message..." />
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggleChatBox() {
+        var chatBoxContainer = document.getElementById("chat-box-container");
+        if (chatBoxContainer.style.right === "-400px") {
+            chatBoxContainer.style.right = "0";
+        } else {
+            chatBoxContainer.style.right = "-400px";
+        }
+    }
+
+    function closeChatBox() {
+        var chatBoxContainer = document.getElementById("chat-box-container");
+        chatBoxContainer.style.right = "-400px";
+    }
+</script>

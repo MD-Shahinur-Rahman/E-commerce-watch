@@ -1,0 +1,161 @@
+<%- include('partials/head') %>
+
+
+  <body class="container">
+    <%- include('partials/header') %>
+
+      <div id="adminMain">
+        <div class="leftHalf">
+          <h1>Admin Details</h1>
+          <select id="option">
+            <option value="">Choose your option</option>
+            <option value="add">Add Product</option>
+            <option value="update">Update Product</option>
+            <option value="delete">Delete Product</option>
+            <option value="show-all">Show all products</option>
+          </select>
+
+          <div id="add-product" style="display: none;">
+            <h2>Add Product</h2>
+            <form action="/admin/add-product" method="POST" enctype="multipart/form-data">
+              <label for="name">Name:</label>
+              <input type="text" name="name" required />
+              <label for="description">Description:</label>
+              <textarea name="description" required></textarea>
+              <label for="price">Price:</label>
+              <input type="number" name="price" required />
+              <label for="stock">Stock:</label>
+              <input type="number" name="stock" required />
+              <label for="photo">Photo:</label>
+              <input type="file" name="photo" />
+              <button type="submit">Add Product</button>
+            </form>
+          </div>
+
+          <div id="update-product" style="display: none;">
+            <h2>Update Product</h2>
+            <form action="/admin/update-product" method="POST">
+              <label for="id">Product ID:</label>
+              <select name="id" required>
+                <% products.forEach(product=> { %>
+                  <option value="<%= product.id %>">
+                    <%= product.id %>
+                  </option>
+                  <% }) %>
+              </select>
+              <label for="name">Name:</label>
+              <input type="text" name="name" required />
+              <label for="description">Description:</label>
+              <textarea name="description" required></textarea>
+              <label for="price">Price:</label>
+              <input type="number" name="price" required />
+              <label for="stock">Stock:</label>
+              <input type="number" name="stock" required />
+              <button type="submit">Update Product</button>
+            </form>
+          </div>
+
+          <div id="delete-product" style="display: none;">
+            <h2>Delete Product</h2>
+            <form action="/admin/delete-product" method="POST">
+              <label for="productId">Product ID:</label>
+              <select name="productId" required>
+                <% products.forEach(product=> { %>
+                  <option value="<%= product.id %>">
+                    <%= product.id %>
+                  </option>
+                  <% }) %>
+              </select>
+              <button type="submit">Delete Product</button>
+            </form>
+          </div>
+
+          <div id="all-products" style="display: none;">
+            <h2>All Products</h2>
+            <table>
+              <thead>
+                <tr>
+                  <th>Photo</th>
+                  <th>Name</th>
+                  <th>ID</th>
+                  <th>Description</th>
+                  <th>Price</th>
+                  <th>Stock</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% products.forEach(product=> { %>
+                  <tr>
+                    <td><img height="100" src="/uploads/<%= product.photo %>" alt="<%= product.name %>" /></td>
+                    <td>
+                      <%= product.name %>
+                    </td>
+                    <td>
+                      <%= product.id %>
+                    </td>
+                    <td>
+                      <%= product.description %>
+                    </td>
+                    <td>
+                      <%= product.price %>
+                    </td>
+                    <td>
+                      <%= product.stock %>
+                    </td>
+                  </tr>
+                  <% }) %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <script>
+          const optionSelect = document.getElementById('option');
+          const addProduct = document.getElementById('add-product');
+          const updateProduct = document.getElementById('update-product');
+          const deleteProduct = document.getElementById('delete-product');
+          const allProducts = document.getElementById('all-products');
+
+          optionSelect.addEventListener('change', () => {
+            addProduct.style.display = 'none';
+            updateProduct.style.display = 'none';
+            deleteProduct.style.display = 'none';
+            allProducts.style.display = 'none';
+
+            if (optionSelect.value === 'add') {
+              addProduct.style.display = 'block';
+            } else if (optionSelect.value === 'update') {
+              updateProduct.style.display = 'block';
+            } else if (optionSelect.value === 'delete') {
+              deleteProduct.style.display = 'block';
+            } else if (optionSelect.value === 'show-all') {
+              allProducts.style.display = 'block';
+            }
+          });
+        </script>
+
+
+        <div class="righthalf">
+          <h1>Meassages</h1>
+          <script src="/socket.io/socket.io.js"></script>
+          <script src="/scripts/chat.js" defer></script>
+
+          <div class="chat-messages" id="chat-messages">
+
+          </div>
+          <div id="chat-container">
+            <form id="chat-form">
+              <input type="text" id="chat-input" placeholder="Type your message..." />
+              <button type="submit">Send</button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+
+      <%- include('partials/footer') %>
+
+  </body>
+
+  </html>

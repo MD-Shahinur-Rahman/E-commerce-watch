@@ -1,0 +1,155 @@
+nav {
+  margin-left: 30%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  z-index: 1000;
+  box-shadow: 500 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 15px 0px;
+  background: transparent;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  float: left;
+}
+
+.logo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 0px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: 8%;
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+  z-index: 1000;
+}
+#nav-menu2 {
+  display: flex;
+  gap: 20px;
+  width: calc(60% - 60px);
+  float: left;
+}
+#nav-menu2 ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+#nav-menu2 ul li {
+  margin-right: 15px;
+  transition: all 0.3s ease;
+  padding: 0px 25px;
+}
+
+#nav-menu2 ul li a {
+  color: #000000;
+  text-decoration: none;
+}
+
+#nav-menu2 ul li:hover {
+  border-radius: 5px;
+  background-color: #f0f0f0;
+}
+
+#nav-menu2 ul li:hover a {
+  color: #ff0000;
+}
+
+#nav-menu2 form {
+  display: flex;
+  align-items: center;
+  width: calc(30% - 30px);
+  float: left;
+}
+
+#nav-menu2 input[type="search1"] {
+  padding: 5px;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+#nav-menu2 button[type="submit2"] {
+  padding: 5px 10px;
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#nav-menu2 button[type="submit2"]:hover {
+  background-color: #ff0000;
+}
+
+#nav-menu {
+  display: flex;
+  gap: 20px;
+  width: calc(60% - 60px);
+  float: left;
+}
+
+#nav-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+#nav-menu ul li {
+  margin-right: 15px;
+  transition: all 0.3s ease;
+  padding: 0px 25px;
+}
+
+#nav-menu ul li a {
+  color: #000000;
+  text-decoration: none;
+}
+
+#nav-menu ul li:hover {
+  border-radius: 5px;
+  background-color: #f0f0f0;
+}
+
+#nav-menu ul li:hover a {
+  color: #ff0000;
+}
+
+#nav-menu form {
+  display: flex;
+  align-items: center;
+  width: calc(30% - 30px);
+  float: left;
+}
+
+#nav-menu input[type="search"] {
+  padding: 5px;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+#nav-menu button[type="submit"] {
+  padding: 5px 10px;
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#nav-menu button[type="submit"]:hover {
+  background-color: #ff0000;
+}

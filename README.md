@@ -15,3 +15,8 @@ Image Handling: Upload and manage images for Products to enhance user profiles a
 
 System Overview in Images
 Below are some screenshots of the system:
+![Screenshot 2024-09-07 221112](https://github.com/user-attachments/assets/4fe43abd-11f4-4389-807c-b0411bb38dd5)
+![Screenshot 2024-09-08 000521](https://github.com/user-attachments/assets/62c4f498-405f-422e-905e-49326d368443)
+![Screenshot 2024-09-08 000542](https://github.com/user-attachments/assets/2d5f8b09-a277-40b1-bb42-44954aaad2d8)
+![Screenshot 2024-09-08 000616](https://github.com/user-attachments/assets/9ce363da-2eba-4019-ae47-ac5b6054bf9a)
+![Screenshot 2024-09-08 000626](https://github.com/user-attachments/assets/a428508c-2744-4c5e-af97-c8deea058842)
